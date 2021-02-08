@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'preact';
 import { AddWrapper, SettingsWrapper, FieldGroup, FieldCustomLabel } from '../../styledComponents/Shapes.ui';
 import { DEFAULT_IMG_URL } from '../../config';
 import { FieldInput } from '../../styledComponents';

@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { getIconStyles, getIconByName } from './styleUtils';
 
@@ -100,10 +99,10 @@ const SwitcherSwitch = styled.span`
     width: 10px;
     height: 10px;
     margin: 5.5px;
-    background: ${p =>  p.theme.colors.accent};
+    background: ${p =>  p.checked ? p.theme.colors.primaryBg : p.theme.colors.accent};
     position: absolute; top: 0; bottom: 0;
     right:  ${props => props.checked ? '0' : '37px'};
-    border: 1px solid ${p => p.theme.colors.accent}; 
+    border: 1px solid ${p => p.checked ? p.theme.colors.primaryBg : p.theme.colors.accent}; 
     border-radius: 12px;
     transition: all 0.3s ease-in 0s;
 `;

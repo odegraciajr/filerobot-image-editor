@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'preact';
 import { PreviewImgBox } from '../../styledComponents';
 import ImageManipulator from './ImageManipulator';
 import FocusPointPreview from './FocusPointPreview';

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component, Fragment } from 'preact';
 import { DarkBtn, OrientationWrapper, RotateButton, RotateIcon, RotateWrapper, ButtonGroup } from '../../styledComponents';
 import Range from '../Range'
 
@@ -46,12 +46,12 @@ export default class extends Component {
                 <span>{t['orientation.rotate_r']}</span></DarkBtn>
 
               {!processWithCloudService && (
-                <>
+                <Fragment>
                   <DarkBtn onClick={() => { this.onFlip('x'); }}><RotateIcon name="flip-h"/>
                     <span>{t['orientation.flip_h']}</span></DarkBtn>
                   <DarkBtn onClick={() => { this.onFlip('y'); }}><RotateIcon name="flip-v"/>
                     <span>{t['orientation.flip_v']}</span></DarkBtn>
-                </>
+                </Fragment>
               )}
             </ButtonGroup>
 

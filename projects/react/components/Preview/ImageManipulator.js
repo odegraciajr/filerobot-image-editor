@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component, createRef, Fragment } from 'preact';
 import { Canvas } from '../../styledComponents';
 import {
   b64toBlob,
@@ -59,8 +59,8 @@ export default class ImageManipulator extends Component {
     this.CamanInstanceZoomed = null;
     this.tempCanvasElement = null;
 
-    this.originalCanvas = React.createRef();
-    this.editedCanvas = React.createRef();
+    this.originalCanvas = createRef();
+    this.editedCanvas = createRef();
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -1307,7 +1307,7 @@ export default class ImageManipulator extends Component {
     const editorWrapperId = this.props.config.elementId = '';
 
     return (
-      <>
+      <Fragment>
         <Canvas
           key={this.state.canvasOriginalKey}
           ref={this.originalCanvas}
@@ -1320,7 +1320,7 @@ export default class ImageManipulator extends Component {
           id={`${editorWrapperId}_${CANVAS_ID}`}
           className="filerobot-edit-canvas"
         />
-      </>
+      </Fragment>
     );
   }
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'preact';
 import styled from 'styled-components';
 import { debounce } from 'throttle-debounce';
 

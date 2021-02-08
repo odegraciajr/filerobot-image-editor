@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'preact';
 import { EFFECTS } from '../../config';
 import { EffectsWrapper } from '../../styledComponents';
 import Effect from './Effect';

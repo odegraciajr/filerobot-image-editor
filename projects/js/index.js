@@ -1,10 +1,11 @@
-import { render, unmountComponentAtNode } from 'react-dom';
-import React from 'react';
+import { render, createRef } from 'preact';
+import { unmountComponentAtNode } from 'preact/compat';
 import ImageEditor from '../react';
 
 
 class FilerobotImageEditor {
   constructor(config = {}, callbacks, show = false) {
+    let ref = createRef();
     let containerId;
     if (config.elementId) {
       containerId = config.elementId
@@ -35,19 +36,23 @@ class FilerobotImageEditor {
 
     config.elementId = containerId;
 
-    const renderApp = Component => render(
-      <Component
+    render(
+      <ImageEditor
         show={show}
         config={config}
         onComplete={onComplete}
         onBeforeComplete={callbacks.onBeforeComplete}
         onOpen={callbacks.onOpen}
         onClose={callbacks.onClose}
-      />, container);
+        ref={ref}
+      />,
+      container
+    );
 
-    this.component = renderApp(ImageEditor);
-    this.open = this.component.open;
-    this.close = this.component.close;
+
+    const component = ref.current;
+    this.open = component.open;
+    this.close = component.close;
     this.unmount = () => unmountComponentAtNode(container);
   }
 }

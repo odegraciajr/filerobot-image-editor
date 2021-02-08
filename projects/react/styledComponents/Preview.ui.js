@@ -1,4 +1,4 @@
-import React from 'react';
+import { forwardRef } from 'preact/compat';
 import styled from 'styled-components';
 
 
@@ -85,7 +85,7 @@ const PreviewCanvas = styled('canvas')`
 `;
 
 const FocusPointWrap = styled(
-  React.forwardRef(({ width, height, ...rest }, ref) => <div className="focus-point" {...rest} ref={ref} />)
+  forwardRef(({ width, height, ...rest }, ref) => <div className="focus-point" {...rest} ref={ref} />)
 )(({ width, height }) => ({
   width,
   height,

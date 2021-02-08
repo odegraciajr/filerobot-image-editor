@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component, Fragment } from 'preact';
 import {
   FieldInput,
   FileInput,
@@ -396,67 +396,75 @@ export default class extends Component {
 
         <WatermarkInputs>
           <WrapperForURL>
-            {galleryInput && (<>
-              <label htmlFor="url">Watermark Gallery</label>
-              <Select
-                width="100%"
-                list={urls}
-                valueProp="url"
-                id="gallery"
-                value={url}
-                style={{ width: 'calc(100% - 120px)' }}
-                onChange={(url) => { this.changeURL({ target: { value: url } }) }}
-              />
-            </>)}
-            {urlInput && (<>
-              <label htmlFor="url">Watermark URL</label>
-              <FieldInput
-                id="url"
-                value={url}
-                style={{ width: 'calc(100% - 120px)' }}
-                onChange={this.changeURL}
-              />
-            </>)}
-            {fileUploadInput && (<>
-              <label htmlFor="image-upload">Watermark Image</label>
-              <FileInput
-                id="image-upload"
-                style={{ width: 'calc(100% - 120px)' }}
-                onChange={this.readFile}
-              />
-            </>)}
-            {textInput && (<>
-              <label htmlFor="text">Watermark Text</label>
-              <FieldInput
-                id="text"
-                value={text}
-                style={{ width: 'calc(65% - 135px)', minWidth: 120 }}
-                name="text"
-                onChange={this.changeTextProperty}
-              />
-              <Select
-                list={config.processWithCloudimage ? WATERMARK_CLOUDIMAGE_FONTS : fonts}
-                valueProp="value"
-                id="textFont"
-                value={textFont}
-                style={{ width: 111, display: 'inline-block', marginLeft: 8 }}
-                onChange={(value) => this.changeTextProperty({ target: { name: 'textFont', value } })}
-              />
-              <FieldInput
-                value={textSize}
-                type="number"
-                name="textSize"
-                style={{ width: 60, marginLeft: 8 }}
-                onChange={this.changeTextProperty}
-              />
-              <FieldInput
-                value={color}
-                type="color"
-                style={{ width: 30, marginLeft: 8, padding: 0, background: 'transparent', boxShadow: 'none' }}
-                name="color"
-                onChange={this.changeTextProperty}
-              />
-            </>)}
+            {galleryInput && (
+              <Fragment>
+                <label htmlFor="url">Watermark Gallery</label>
+                <Select
+                  width="100%"
+                  list={urls}
+                  valueProp="url"
+                  id="gallery"
+                  value={url}
+                  style={{ width: 'calc(100% - 120px)' }}
+                  onChange={(url) => { this.changeURL({ target: { value: url } }) }}
+                />
+              </Fragment>
+            )}
+            {urlInput && (
+              <Fragment>
+                <label htmlFor="url">Watermark URL</label>
+                <FieldInput
+                  id="url"
+                  value={url}
+                  style={{ width: 'calc(100% - 120px)' }}
+                  onChange={this.changeURL}
+                />
+              </Fragment>
+            )}
+            {fileUploadInput && (
+              <Fragment>
+                <label htmlFor="image-upload">Watermark Image</label>
+                <FileInput
+                  id="image-upload"
+                  style={{ width: 'calc(100% - 120px)' }}
+                  onChange={this.readFile}
+                />
+              </Fragment>
+            )}
+            {textInput && (
+              <Fragment>
+                <label htmlFor="text">Watermark Text</label>
+                <FieldInput
+                  id="text"
+                  value={text}
+                  style={{ width: 'calc(65% - 135px)', minWidth: 120 }}
+                  name="text"
+                  onChange={this.changeTextProperty}
+                />
+                <Select
+                  list={config.processWithCloudimage ? WATERMARK_CLOUDIMAGE_FONTS : fonts}
+                  valueProp="value"
+                  id="textFont"
+                  value={textFont}
+                  style={{ width: 111, display: 'inline-block', marginLeft: 8 }}
+                  onChange={(value) => this.changeTextProperty({ target: { name: 'textFont', value } })}
+                />
+                <FieldInput
+                  value={textSize}
+                  type="number"
+                  name="textSize"
+                  style={{ width: 60, marginLeft: 8 }}
+                  onChange={this.changeTextProperty}
+                />
+                <FieldInput
+                  value={color}
+                  type="color"
+                  style={{ width: 30, marginLeft: 8, padding: 0, background: 'transparent', boxShadow: 'none' }}
+                  name="color"
+                  onChange={this.changeTextProperty}
+                />
+              </Fragment>
+            )}
           </WrapperForURL>
           <WrapperForControls switcherPosition={handleOpacity ? 'right' : 'left'}>
             {handleOpacity &&

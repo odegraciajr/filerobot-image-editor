@@ -30,7 +30,12 @@ module.exports = (env, options) => {
     },
     plugins: [htmlWebpackPlugin],
     resolve: {
-      extensions: ["*", ".js", ".jsx"]
+      extensions: ["*", ".js", ".jsx"],
+      alias: {
+        react: "preact/compat",
+        "react-dom/test-utils": "preact/test-utils",
+        "react-dom": "preact/compat"
+      }
     },
     devtool: options.mode === 'development' ? "sourcemap" : "none",
     devServer: {
