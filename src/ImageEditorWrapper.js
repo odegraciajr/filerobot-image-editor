@@ -4,7 +4,7 @@ import { Container } from './styledComponents';
 import { ThemeProvider } from 'styled-components';
 import { Modal } from './components/Modal';
 import { CLOUDIMAGE_OPERATIONS, TOOLS, UPLOADER, ON_CLOSE_STATUSES, STANDARD_FONTS, CONTAINER_SELECTOR } from './config';
-import './assets/fonts/filerobot-font.css';
+// import './assets/fonts/filerobot-font.css';
 import translations from './assets/i18n';
 import dark from './assets/theme/dark';
 import light from './assets/theme/light';
@@ -38,11 +38,11 @@ class ImageEditorWrapper extends Component {
       theme: {
         colors: {
           ...(isCustomColorScheme
-              ? { colors: config.colorScheme }
-              : config.colorScheme === 'light'
-                ? light
-                : dark
-            ).colors,
+            ? { colors: config.colorScheme }
+            : config.colorScheme === 'light'
+              ? light
+              : dark
+          ).colors,
           ...config.theme.colors
         },
         fonts: config.theme.fonts
@@ -102,12 +102,12 @@ class ImageEditorWrapper extends Component {
 
   render() {
     const { isVisible, src, config, t, theme } = this.state;
-    const { onComplete = () => {}, onBeforeComplete, onError = () => {}, closeOnLoad } = this.props;
+    const { onComplete = () => { }, onBeforeComplete, onError = () => { }, closeOnLoad } = this.props;
     const { showInModal = true } = config;
 
     if (!src || !isVisible || isServerSide) return null;
 
-    if(src instanceof Blob && config.processWithCloudimage) return null;
+    if (src instanceof Blob && config.processWithCloudimage) return null;
 
     const Inner = (
       <Container>
@@ -127,7 +127,7 @@ class ImageEditorWrapper extends Component {
     return (
       <ThemeProvider theme={{ ...theme }}>
         {showInModal
-        ? <Modal
+          ? <Modal
             noBorder
             fullScreen={'lg'}
             isHideCloseBtn={true}
@@ -137,7 +137,7 @@ class ImageEditorWrapper extends Component {
           >
             {Inner}
           </Modal>
-        : <div
+          : <div
             className={CONTAINER_SELECTOR}
             id={CONTAINER_SELECTOR}
             style={{ width: '100%', height: '100%' }}
