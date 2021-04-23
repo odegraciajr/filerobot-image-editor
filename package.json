@@ -1,6 +1,6 @@
 {
   "name": "@odegraciajr/filerobot-image-editor",
-  "version": "3.12.17",
+  "version": "3.12.18",
   "main": "dist/index.js",
   "description": "Edit, resize, and filter any image!",
   "author": "scaleflex",
